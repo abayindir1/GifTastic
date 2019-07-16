@@ -1,0 +1,40 @@
+body{
+background-image: url("../images/background.png")
+}
+.movies{
+    margin: 0.2%;
+    color: rgb(255, 255, 255);
+    padding: 0.6%;
+    width: 45%;
+    font-family: 'Permanent Marker', cursive;
+    border-radius: 18px;
+    border-color: aliceblue;
+}
+button{ 
+    background-color: rgba(221, 55, 55, 0.816);
+}
+.form-group{
+    margin: 0.2%;
+    color: rgb(255, 255, 255);
+    padding: 0.6%;
+    width: 45%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+}
+.btn-primary{
+    width: 5%;
+    margin-left: 1%;
+    background-color: rgb(221, 55, 55);
+}
+hr{
+    background-color: white;
+    width: 38%;
+    margin-left: 1.5%;
+}
+img{
+    width:300px;
+    height: 300px;
+}
+button:hover{
+    background-color: rgb(11, 11, 22);
+}

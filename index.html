@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GifTastic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Permanent+Marker&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <style src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></style>
-    <style src="javascript/app.js"></style>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Enter a movie</label>
+            <input type="movie" class="form-control" id="movie" aria-describedby="emailHelp" placeholder="Add a movie">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <hr>
+
+    <div id="buttons-view" class="movies">
+
+    </div>
+    <div class="col-6" id="gifs-view">
+
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="javascript/app.js"></script>
 </body>
+
 </html>
