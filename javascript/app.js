@@ -12,11 +12,10 @@ $(document).ready(function () {
             for (i = 0; i < 11; i++){
                 var newDiv = $("<div>")
                 var rate = $("<p>")
-                rate.text(response.data[i].rating);
+                rate.text("Rating: " + response.data[i].rating);
                 var gifs = $("<img>")
                 gifs.attr("src", response.data[i].images.original.url);
-                rate.appendTo(newDiv)
-                gifs.appendTo(newDiv)
+                newDiv.append(rate, "<br>", gifs)
                 newDiv.prependTo($("#gifs-view"))
             }
         })
