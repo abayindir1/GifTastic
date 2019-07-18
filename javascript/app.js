@@ -5,26 +5,38 @@ $(document).ready(function () {
 
     function showContent() {
         var movieName = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + movieName + "&api_key=i6NekEIIc0KswztA8slpxQeF66sYQrqe&limit=10";
-        
-        $.ajax({url:queryURL, method: "GET"})
-        .then(function(response){
-            for (i = 0; i < 11; i++){
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + movieName + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+        $.ajax({ url: queryURL, method: "GET" })
+            .then(function (response) {
                 var newDiv = $("<div>")
-                var rate = $("<p>")
-                rate.text("Rating: " + response.data[i].rating);
-                var gifs = $("<img>")
-                gifs.attr("src", response.data[i].images.original.url);
-                newDiv.append(rate, "<br>", gifs)
-                newDiv.prependTo($("#gifs-view"))
-            }
-        })
+                for (i = 0; i < 11; i++) {
+                    var rate = $("<p>")
+                    rate.text("Rating: " + response.data[i].rating);
+                    var gifs = $("<img>")
+                    gifs.attr("src", response.data[i].images.original.url);
+                    newDiv.append(rate, "<br>", gifs)
+                    newDiv.prependTo($("#gifs-view"))
+                }
+            })
     }
-        
-        function showButtons(){
-            $("#buttons-view").empty();
-            
-        for(i = 0; i<topics.length; i++){
+
+    // $(img).on("click", function (){
+    //     var state = $(this).attr("data-state");
+
+    //     if(state = "still"){
+    //         $(this).attr("src", $(this).attr("data-animate"))
+    //         $(this).attr("data-state", "animate")
+    //     }else{
+    //         $(this).attr("src", $(this).attr("data-still"))
+    //         $(this).attr("data-state", "still")
+    //     }
+    // })
+
+    function showButtons() {
+        $("#buttons-view").empty();
+
+        for (i = 0; i < topics.length; i++) {
             var b = $("<button>");
             b.addClass("movies");
             b.attr("data-name", topics[i]);
@@ -32,12 +44,13 @@ $(document).ready(function () {
             $("#buttons-view").append(b);
         }
     }
-    $(".btn").on("click", function(event){
+    $(".btn-submit").on("click", function (event) {
         event.preventDefault();
         var movie = $("#movie").val().trim();
         topics.push(movie);
         showButtons();
     })
+
     $(document).on("click", ".movies", showContent);
     showButtons();
 

@@ -21,10 +21,12 @@ button{
     font-family: 'Permanent Marker', cursive;
     font-size: 20px;
 }
-.btn-primary{
-    width: 5%;
+.btn-submit{
+    width: auto;
     margin-left: 1%;
     background-color: rgb(221, 55, 55);
+    color: white;
+    border-radius: 20%;
 }
 hr{
     background-color: white;
@@ -32,7 +34,8 @@ hr{
     margin-left: 1.5%;
 }
 img{
-    max-width: 100%;
+    width: 83%;
+    max-height: 400px;
 }
 button:hover{
     background-color: rgb(11, 11, 22);
@@ -56,5 +59,6 @@ p{
     height: 36px;
 }
 p,img{
-    float: left
+    float: left;
+    margin: 2%;
 }
