@@ -2,7 +2,7 @@ body{
 background-image: url("../images/background.png")
 }
 .movies{
-    margin: 0.2%;
+    margin: 0.6%;
     color: rgb(255, 255, 255);
     padding: 0.6%;
     width: 45%;
@@ -30,7 +30,7 @@ button{
 }
 hr{
     background-color: white;
-    width: 38%;
+    width: 40%;
     margin-left: 1.5%;
 }
 img{

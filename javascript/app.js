@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-    var topics = ["The Godfather", "Matrix", "The Revenant", "The Hateful Eight", "Interstellar", "12 Angry Men"]
+    var topics = ["The Godfather", "Matrix", "Equilibrium", "The Hateful Eight", "Interstellar", "12 Angry Men", "The Shawshank Redemption", "The Lord of the Rings", "Fight Club", "Forrest Gump"]
     var imageCount = 0
     var count = 0
 
