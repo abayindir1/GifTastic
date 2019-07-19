@@ -42,7 +42,7 @@ button:hover{
 }
 #gifs-view{
     float: right;
-    position: relative;
+    position: sticky;
     bottom: 300px;
     margin: 4%;
 }
