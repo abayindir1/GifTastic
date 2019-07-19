@@ -2,6 +2,8 @@
 $(document).ready(function () {
 
     var topics = ["The Godfather", "Matrix", "The Revenant", "The Hateful Eight", "Interstellar", "12 Angry Men"]
+    var imageCount = 0
+    var count = 0
 
     function showContent() {
         var movieName = $(this).attr("data-name");
@@ -10,6 +12,7 @@ $(document).ready(function () {
         $.ajax({ url: queryURL, method: "GET" })
             .then(function (response) {
                 var newDiv = $("<div>")
+                newDiv.addClass("animations")
                 for (i = 0; i < 11; i++) {
                     var rate = $("<p>")
                     rate.text("Rating: " + response.data[i].rating);
@@ -20,9 +23,20 @@ $(document).ready(function () {
                     gifs.attr("data-state", "still")
                     gifs.attr("src", response.data[i].images.original_still.url)
                     clickImage()
+                    if (imageCount >= 10) {
+                        imageCount=0
+                        $(".animations").empty()
+                        gifs.attr("data-still", response.data[imageCount].images.original_still.url)
+                        gifs.attr("data-animated", response.data[imageCount].images.original.url)
+                        gifs.attr("data-state", "still")
+                        gifs.attr("src", response.data[imageCount].images.original_still.url)
+                    }
                     newDiv.append(rate, "<br>", gifs)
                     newDiv.prependTo($("#gifs-view"))
                     clickImage()
+                    imageCount++
+                    console.log(count)
+                    console.log("bum" + imageCount)
                 }
             })
     }
@@ -30,7 +44,6 @@ $(document).ready(function () {
     function clickImage() {
         $(".gif").on("click", function () {
             var state = $(this).attr("data-state")
-            console.log("clicked")
             if (state === "still") {
                 $(this).attr("src", $(this).attr("data-animated"));
                 $(this).attr("data-state", "animated")
@@ -40,6 +53,8 @@ $(document).ready(function () {
             }
         })
     }
+
+
 
     function showButtons() {
         $("#buttons-view").empty();
