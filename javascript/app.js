@@ -14,34 +14,42 @@ $(document).ready(function () {
                     var rate = $("<p>")
                     rate.text("Rating: " + response.data[i].rating);
                     var gifs = $("<img>")
-                    gifs.attr("src", response.data[i].images.original.url);
+                    gifs.addClass("gif")
+                    gifs.attr("data-still", response.data[i].images.original_still.url)
+                    gifs.attr("data-animated", response.data[i].images.original.url)
+                    gifs.attr("data-state", "still")
+                    gifs.attr("src", response.data[i].images.original_still.url)
+                    clickImage()
                     newDiv.append(rate, "<br>", gifs)
                     newDiv.prependTo($("#gifs-view"))
+                    clickImage()
                 }
             })
     }
 
-    // $(img).on("click", function (){
-    //     var state = $(this).attr("data-state");
-
-    //     if(state = "still"){
-    //         $(this).attr("src", $(this).attr("data-animate"))
-    //         $(this).attr("data-state", "animate")
-    //     }else{
-    //         $(this).attr("src", $(this).attr("data-still"))
-    //         $(this).attr("data-state", "still")
-    //     }
-    // })
+    function clickImage() {
+        $(".gif").on("click", function () {
+            var state = $(this).attr("data-state")
+            console.log("clicked")
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("data-animated"));
+                $(this).attr("data-state", "animated")
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still")
+            }
+        })
+    }
 
     function showButtons() {
         $("#buttons-view").empty();
 
         for (var i = 0; i < topics.length; i++) {
-            var b = $("<button>");
-            b.addClass("movies");
-            b.attr("data-name", topics[i]);
-            b.text(topics[i]);
-            $("#buttons-view").append(b);
+            var button = $("<button>");
+            button.addClass("movies");
+            button.attr("data-name", topics[i]);
+            button.text(topics[i]);
+            $("#buttons-view").append(button);
         }
     }
     $(".btn-submit").on("click", function (event) {
@@ -50,7 +58,7 @@ $(document).ready(function () {
         topics.push(movie);
         showButtons();
     })
-    
+
 
     $("#buttons-view").on("click", ".movies", showContent);
     showButtons();
